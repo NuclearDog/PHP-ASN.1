@@ -252,7 +252,7 @@ namespace ASN1
 
 		public function write($value)
 		{
-			$this->Value = $value;
+			$this->_Value = $value;
 		}
 
 	}
