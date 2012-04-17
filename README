@@ -1,0 +1,16 @@
+This library was written over the span of several hours very, very early in
+the morning while hopped up on half a dozen cans of Red Bull. It has worked
+perfectly on the limited amount of test data I've put through it, but it may
+be full of hidden and horrible bugs.
+
+It was written just to solve a single problem, and is far from optimal software
+in many ways (architecture, efficiency, etc), but should get the job done.
+
+It's also entirely uncommented and undocumented, but the couple of sample
+files should get you started.
+
+The library only implements 'nice' read/write methods for a select few types
+(see the `tlv` folder). Anything else you will need to either implement a
+type for, or pack/unpack the data when calling get/set on the TLV.
+
+Good luck.
