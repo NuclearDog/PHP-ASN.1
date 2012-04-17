@@ -17,6 +17,8 @@ namespace ASN1
 
 		public function __construct($string)
 		{
+			$this->_values = array();
+			$this->_exists = array();
 			if (is_array($string))
 			{
 				foreach ($string as $k=>$v)
@@ -24,8 +26,6 @@ namespace ASN1
 			}
 			else if (is_string($string))
 			{
-				$this->_values = array();
-				$this->_exists = array();
 				$string = explode(',', $string);
 				foreach ($string as $kvp)
 				{
