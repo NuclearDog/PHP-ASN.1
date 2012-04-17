@@ -12,6 +12,13 @@ namespace ASN1
 
 	class TLVReader
 	{
+		/**
+		* Read a single TLV tuplet from the stream and shorten the stream by
+		* the consumed amount.
+		*
+		* @param string $stream
+		* @return stdClass An object containing Class, Type, Tag, Length and Value properties.
+		*/
 		public static function read(&$stream)
 		{
 			$tlv_data = new \stdClass();

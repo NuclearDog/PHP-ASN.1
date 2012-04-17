@@ -14,11 +14,19 @@ namespace ASN1
 	{
 		protected $_tlv;
 
+		/**
+		* Initialize a new output object to in some way output the passed TLV.
+		*
+		* @param \ASN1\TLV $tlv
+		*/
 		public function __construct(TLV $tlv)
 		{
 			$this->_tlv = $tlv;
 		}
 
+		/**
+		* Print the held TLV tree to the screen with echo.
+		*/
 		public function display()
 		{
 			echo self::dump($this->_tlv);

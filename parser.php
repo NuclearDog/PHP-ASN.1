@@ -14,11 +14,21 @@ namespace ASN1
 	{
 		protected $_reader;
 
+		/**
+		*
+		* @param \ASN1\TLVReader $reader The implementation to use to read TLV tuplets from a stream.
+		*/
 		public function __construct(TLVReader $reader)
 		{
 			$this->_reader = $reader;
 		}
 
+		/**
+		* Parses the raw binary data into a tree of TLV objects.
+		*
+		* @param string data
+		* @return TLV,array Either a single TLV or an array if there are multiple TLVs at the root level of the passed string.
+		*/
 		public function parse($data)
 		{
 			$tlvs = array();

@@ -12,6 +12,13 @@ namespace ASN1
 
 	class TLVWriter
 	{
+
+		/**
+		* Serializes a single TLV and returns its binary representation.
+		*
+		* @param \ASN1\TLV $tlv
+		* @return string
+		*/
 		public static function write(TLV $tlv)
 		{
 			$data = $tlv->read();
@@ -36,6 +43,14 @@ namespace ASN1
 			return chr($tag).$length.$data;
 		}
 
+		/**
+		* The length needs to be encoded in the fewest unsigned bytes possible.
+		* This calculated out the number of bytes and packs the integer into
+		* them.
+		*
+		* @param integer $value
+		* @return string
+		*/
 		protected static function packInteger($value)
 		{
 			$n = 1;

@@ -14,11 +14,22 @@ namespace ASN1
 	{
 		protected $_writer;
 
+		/**
+		* The writer to use to serialize individual TLVs.
+		*
+		* @param \ASN1\TLVWriter $writer
+		*/
 		public function __construct(TLVWriter $writer)
 		{
 			$this->_writer = $writer;
 		}
 
+		/**
+		* Recursively serializes a TLV tree into a flat binary stream.
+		*
+		* @param \ASN1\TLV $tlv The root TLV node.
+		* @return string The binary representation of the node and all it's children.
+		*/
 		public function serialize(TLV $tlv)
 		{
 			if ($tlv->isConstruct())
@@ -28,7 +39,6 @@ namespace ASN1
 				{
 					$data .= $this->serialize($child);
 				}
-				$d = $tlv->read();
 				$tlv->write($data);
 			}
 
